@@ -1,4 +1,5 @@
 #include <iostream>;
+#include <algorithm>
 
 using namespace std;
 void reroll();
@@ -19,12 +20,23 @@ void statRoller()
 			rollTotal[roll] = rollCurrent;
 			roll++;
 		}
+		std::sort(std::rbegin(rollTotal), std::rend(rollTotal));
 		
-		cout << "Stat " << rolledStat +1 << " - " << rollTotal[0]<<", " << rollTotal[1] << ", " << rollTotal[2] << rollTotal[3] << " = " << rollTotal[0] + rollTotal[1] + rollTotal[2] + rollTotal[3] << "\n";
+		std::cout << "Stat " << rolledStat << " - ";
+
+		for (int i = 0; i < 3; ++i) {
+			 cout << rollTotal[i] << " ";
+		}
+
+		cout << "= " << rollTotal[0] + rollTotal[1] + rollTotal[3];
+
+		cout << std::endl;
+
 		rolledStat++;
 	}
 	reroll();
 }
+
 
 void reroll()
 {
