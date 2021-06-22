@@ -1,9 +1,7 @@
 #include <iostream>
+#include"Forward.h"
 
 using namespace std;
-
-void menuDiceRoller();
-void statRoller();
 
 void menu()
 {
