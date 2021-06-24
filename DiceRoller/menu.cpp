@@ -1,5 +1,8 @@
 #include <iostream>
-#include"Forward.h"
+#include "Clear.h"
+
+void menuDiceRoller();
+void statRoller();
 
 using namespace std;
 
