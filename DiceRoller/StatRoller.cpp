@@ -1,8 +1,9 @@
 #include <iostream>;
 #include <algorithm>
 
+
 using namespace std;
-void statRollerMenu();
+void Menu();
 void assignStats();
 void displayStats();
 void assignSTR();
@@ -12,8 +13,9 @@ void assignINT();
 void assignWIS();
 void assignCHA();
 
-int Stats[6] = {};
-int str{ 0 }, dex{ 0 }, con{ 0 }, inti{ 0 }, wis{ 0 }, cha{ 0 };
+int STAT[6];
+
+int str1{ 0 }, dex1{ 0 }, con1{ 0 }, inti1 { 0 }, wis1{ 0 }, cha1{ 0 };
 
 void statRoller()
 {
@@ -33,14 +35,13 @@ void statRoller()
 		}
 		std::sort(std::rbegin(rollTotal), std::rend(rollTotal));
 		
-		Stats[rolledStat] = rollTotal[0] + rollTotal[1] + rollTotal[3];
-
+		STAT[rolledStat] = rollTotal[0] + rollTotal[1] + rollTotal[3];
 		rolledStat++;
 	}
-	statRollerMenu();
+	Menu();
 }
 
-void statRollerMenu()
+void Menu()
 {
 	bool validSelection = false;
 	int selection{};
@@ -62,18 +63,13 @@ void statRollerMenu()
 		{
 		case 1:
 			system("cls");
+			statRoller(); 
 			validSelection = true;
-			statRoller();
 			break;
 		case 2:
 			system("cls");
 			validSelection = true;
 			assignStats();
-			break;
-		case 3:
-			system("cls");
-			validSelection = true;
-			return;
 			break;
 		default:
 			system("cls");
@@ -84,11 +80,11 @@ void statRollerMenu()
 
 void displayStats()
 {
-	std::sort(std::rbegin(Stats), std::rend(Stats));
+	std::sort(std::rbegin(STAT), std::rend(STAT));
 	int i{ 0 };
 	while (i < 6)
 	{
-		cout << Stats[i] << "\n";
+		cout << STAT[i] << "\n";
 		i++;
 	}
 }
@@ -108,7 +104,7 @@ void assignStats()
 	assignCHA();
 	system("cls");
 
-	cout << "Str - " << str << "\nDex - " << dex << "\nCon - " << con << "\nInt - " << inti << "\nWis - " << wis << "\nCha - " << cha << "\n";
+	cout << "Str - " << str1 << "\nDex - " << dex1 << "\nCon - " << con1 << "\nInt - " << inti1 << "\nWis - " << wis1 << "\nCha - " << cha1 << "\n";
 	system("pause");
 	system("cls");
 }
@@ -120,7 +116,7 @@ void assignSTR()
 	{
 		displayStats();
 		cout << "Strength - ";
-		cin >> str;
+		cin >> str1;
 
 		if (!cin)
 		{
@@ -128,45 +124,45 @@ void assignSTR()
 			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
 
-		if (str == Stats[0])
+		if (str1 == STAT[0])
 		{
-			str = Stats[0];
-			Stats[0] = 0;
+			str1 = STAT[0];
+			STAT[0] = 0;
 			valid = true;
 			break;
 		}
-		if (str == Stats[1])
+		if (str1 == STAT[1])
 		{
-			str = Stats[1];
-			Stats[1] = 0;
+			str1 = STAT[1];
+			STAT[1] = 0;
 			valid = true;
 			break;
 		}
-		if (str == Stats[2])
+		if (str1 == STAT[2])
 		{
-			str = Stats[2];
-			Stats[2] = 0;
+			str1 = STAT[2];
+			STAT[2] = 0;
 			valid = true;
 			break;
 		}
-		if (str == Stats[3])
+		if (str1 == STAT[3])
 		{
-			str = Stats[3];
-			Stats[3] = 0;
+			str1 = STAT[3];
+			STAT[3] = 0;
 			valid = true;
 			break;
 		}
-		if (str == Stats[4])
+		if (str1 == STAT[4])
 		{
-			str = Stats[4];
-			Stats[4] = 0;
+			str1 = STAT[4];
+			STAT[4] = 0;
 			valid = true;
 			break;
 		}
-		if (str == Stats[5])
+		if (str1 == STAT[5])
 		{
-			str = Stats[5];
-			Stats[5] = 0;
+			str1 = STAT[5];
+			STAT[5] = 0;
 			valid = true;
 			break;
 		}
@@ -180,7 +176,7 @@ void assignDEX()
 	{
 		displayStats();
 		cout << "Dexterity - ";
-		cin >> dex;
+		cin >> dex1;
 
 		if (!cin)
 		{
@@ -188,45 +184,45 @@ void assignDEX()
 			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
 
-		if (dex == Stats[0])
+		if (dex1 == STAT[0])
 		{
-			dex = Stats[0];
-			Stats[0] = 0;
+			dex1 = STAT[0];
+			STAT[0] = 0;
 			valid = true;
 			break;
 		}
-		if (dex == Stats[1])
+		if (dex1 == STAT[1])
 		{
-			dex = Stats[1];
-			Stats[1] = 0;
+			dex1 = STAT[1];
+			STAT[1] = 0;
 			valid = true;
 			break;
 		}
-		if (dex == Stats[2])
+		if (dex1 == STAT[2])
 		{
-			dex = Stats[2];
-			Stats[2] = 0;
+			dex1 = STAT[2];
+			STAT[2] = 0;
 			valid = true;
 			break;
 		}
-		if (dex == Stats[3])
+		if (dex1 == STAT[3])
 		{
-			dex = Stats[3];
-			Stats[3] = 0;
+			dex1 = STAT[3];
+			STAT[3] = 0;
 			valid = true;
 			break;
 		}
-		if (dex == Stats[4])
+		if (dex1 == STAT[4])
 		{
-			dex = Stats[4];
-			Stats[4] = 0;
+			dex1 = STAT[4];
+			STAT[4] = 0;
 			valid = true;
 			break;
 		}
-		if (dex == Stats[5])
+		if (dex1 == STAT[5])
 		{
-			dex = Stats[5];
-			Stats[5] = 0;
+			dex1 = STAT[5];
+			STAT[5] = 0;
 			valid = true;
 			break;
 		}
@@ -240,7 +236,7 @@ void assignCON()
 	{
 		displayStats();
 		cout << "Constitution - ";
-		cin >> con;
+		cin >> con1;
 
 		if (!cin)
 		{
@@ -248,45 +244,45 @@ void assignCON()
 			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
 
-		if (con == Stats[0])
+		if (con1 == STAT[0])
 		{
-			con = Stats[0];
-			Stats[0] = 0;
+			con1 = STAT[0];
+			STAT[0] = 0;
 			valid = true;
 			break;
 		}
-		if (con == Stats[1])
+		if (con1 == STAT[1])
 		{
-			con = Stats[1];
-			Stats[1] = 0;
+			con1 = STAT[1];
+			STAT[1] = 0;
 			valid = true;
 			break;
 		}
-		if (con == Stats[2])
+		if (con1 == STAT[2])
 		{
-			con = Stats[2];
-			Stats[2] = 0;
+			con1 = STAT[2];
+			STAT[2] = 0;
 			valid = true;
 			break;
 		}
-		if (con == Stats[3])
+		if (con1 == STAT[3])
 		{
-			con = Stats[3];
-			Stats[3] = 0;
+			con1 = STAT[3];
+			STAT[3] = 0;
 			valid = true;
 			break;
 		}
-		if (con == Stats[4])
+		if (con1 == STAT[4])
 		{
-			con = Stats[4];
-			Stats[4] = 0;
+			con1 = STAT[4];
+			STAT[4] = 0;
 			valid = true;
 			break;
 		}
-		if (con == Stats[5])
+		if (con1 == STAT[5])
 		{
-			con = Stats[5];
-			Stats[5] = 0;
+			con1 = STAT[5];
+			STAT[5] = 0;
 			valid = true;
 			break;
 		}
@@ -300,7 +296,7 @@ void assignINT()
 	{
 		displayStats();
 		cout << "Intelligence - ";
-		cin >> inti;
+		cin >> inti1;
 
 		if (!cin)
 		{
@@ -308,45 +304,45 @@ void assignINT()
 			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
 
-		if (inti == Stats[0])
+		if (inti1 == STAT[0])
 		{
-			inti = Stats[0];
-			Stats[0] = 0;
+			inti1 = STAT[0];
+			STAT[0] = 0;
 			valid = true;
 			break;
 		}
-		if (inti == Stats[1])
+		if (inti1 == STAT[1])
 		{
-			inti = Stats[1];
-			Stats[1] = 0;
+			inti1 = STAT[1];
+			STAT[1] = 0;
 			valid = true;
 			break;
 		}
-		if (inti == Stats[2])
+		if (inti1 == STAT[2])
 		{
-			inti = Stats[2];
-			Stats[2] = 0;
+			inti1 = STAT[2];
+			STAT[2] = 0;
 			valid = true;
 			break;
 		}
-		if (inti == Stats[3])
+		if (inti1 == STAT[3])
 		{
-			inti = Stats[3];
-			Stats[3] = 0;
+			inti1 = STAT[3];
+			STAT[3] = 0;
 			valid = true;
 			break;
 		}
-		if (inti == Stats[4])
+		if (inti1 == STAT[4])
 		{
-			inti = Stats[4];
-			Stats[4] = 0;
+			inti1 = STAT[4];
+			STAT[4] = 0;
 			valid = true;
 			break;
 		}
-		if (inti == Stats[5])
+		if (inti1 == STAT[5])
 		{
-			inti = Stats[5];
-			Stats[5] = 0;
+			inti1 = STAT[5];
+			STAT[5] = 0;
 			valid = true;
 			break;
 		}
@@ -360,7 +356,7 @@ void assignWIS()
 	{
 		displayStats();
 		cout << "Wisdon - ";
-		cin >> wis;
+		cin >> wis1;
 
 		if (!cin)
 		{
@@ -368,45 +364,45 @@ void assignWIS()
 			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
 
-		if (wis == Stats[0])
+		if (wis1 == STAT[0])
 		{
-			wis = Stats[0];
-			Stats[0] = 0;
+			wis1 = STAT[0];
+			STAT[0] = 0;
 			valid = true;
 			break;
 		}
-		if (wis == Stats[1])
+		if (wis1 == STAT[1])
 		{
-			wis = Stats[1];
-			Stats[1] = 0;
+			wis1 = STAT[1];
+			STAT[1] = 0;
 			valid = true;
 			break;
 		}
-		if (wis == Stats[2])
+		if (wis1 == STAT[2])
 		{
-			wis = Stats[2];
-			Stats[2] = 0;
+			wis1 = STAT[2];
+			STAT[2] = 0;
 			valid = true;
 			break;
 		}
-		if (wis == Stats[3])
+		if (wis1 == STAT[3])
 		{
-			wis = Stats[3];
-			Stats[3] = 0;
+			wis1 = STAT[3];
+			STAT[3] = 0;
 			valid = true;
 			break;
 		}
-		if (wis == Stats[4])
+		if (wis1 == STAT[4])
 		{
-			wis = Stats[4];
-			Stats[4] = 0;
+			wis1 = STAT[4];
+			STAT[4] = 0;
 			valid = true;
 			break;
 		}
-		if (wis == Stats[5])
+		if (wis1 == STAT[5])
 		{
-			wis = Stats[5];
-			Stats[5] = 0;
+			wis1 = STAT[5];
+			STAT[5] = 0;
 			valid = true;
 			break;
 		}
@@ -420,7 +416,7 @@ void assignCHA()
 	{
 		displayStats();
 		cout << "Charisma - ";
-		cin >> cha;
+		cin >> cha1;
 
 		if (!cin)
 		{
@@ -428,45 +424,45 @@ void assignCHA()
 			cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 		}
 
-		if (cha == Stats[0])
+		if (cha1 == STAT[0])
 		{
-			cha = Stats[0];
-			Stats[0] = 0;
+			cha1 = STAT[0];
+			STAT[0] = 0;
 			valid = true;
 			break;
 		}
-		if (cha == Stats[1])
+		if (cha1 == STAT[1])
 		{
-			cha = Stats[1];
-			Stats[1] = 0;
+			cha1 = STAT[1];
+			STAT[1] = 0;
 			valid = true;
 			break;
 		}
-		if (cha == Stats[2])
+		if (cha1 == STAT[2])
 		{
-			cha = Stats[2];
-			Stats[2] = 0;
+			cha1 = STAT[2];
+			STAT[2] = 0;
 			valid = true;
 			break;
 		}
-		if (cha == Stats[3])
+		if (cha1 == STAT[3])
 		{
-			cha = Stats[3];
-			Stats[3] = 0;
+			cha1 = STAT[3];
+			STAT[3] = 0;
 			valid = true;
 			break;
 		}
-		if (cha == Stats[4])
+		if (cha1 == STAT[4])
 		{
-			cha = Stats[4];
-			Stats[4] = 0;
+			cha1 = STAT[4];
+			STAT[4] = 0;
 			valid = true;
 			break;
 		}
-		if (cha == Stats[5])
+		if (cha1 == STAT[5])
 		{
-			cha = Stats[5];
-			Stats[5] = 0;
+			cha1 = STAT[5];
+			STAT[5] = 0;
 			valid = true;
 			break;
 		}

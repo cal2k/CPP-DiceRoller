@@ -1,14 +1,14 @@
 #include <iostream>
-#include "Clear.h"
 
 void menuDiceRoller();
 void statRoller();
+void con();
 
 using namespace std;
 
 void menu()
 {
-    string menuOptions = "1 - Dice Roller\n2 - Stat Roller\n3 - Exit\n";
+    string menuOptions = "1 - Dice Roller\n2 - Stat Roller\n3 - New Character\n4 - Exit\n";
     bool valid = true;
     int menuSelection{};
     while (valid)
@@ -34,6 +34,8 @@ void menu()
             statRoller();
             break;
         case 3:
+            break;
+        case 4:
             return;
             break;
         default:
